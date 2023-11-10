@@ -1,6 +1,11 @@
 <script>
+import AppHeader from './components/AppHeader.vue'
 import axios from 'axios'
 export default {
+  components: {
+    AppHeader
+  },
+  name: 'App',
   data() {
     return {
       API_KEY: '25e224b4d2e69b2bde88f482e9b3a205',
@@ -15,8 +20,11 @@ export default {
           query: this.query,
         }
       }).then(res => {
-        console.log(res.data.result);
+        console.log(res.data.results);
       })
+    },
+    AppButtonFunction() {
+      console.log('AppClick');
     }
   },
   created() {
@@ -26,29 +34,13 @@ export default {
 </script>
 
 <template>
+  <div class="header">
+    <AppHeader @buttonClick="AppButtonFunction" />
+  </div>
+
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    {{ query }}
   </div>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+<style></style>
