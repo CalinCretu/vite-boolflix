@@ -1,5 +1,28 @@
-<script setup>
-
+<script>
+import axios from 'axios'
+export default {
+  data() {
+    return {
+      API_KEY: '25e224b4d2e69b2bde88f482e9b3a205',
+      query: 'Ritorno al futuro',
+    }
+  },
+  methods: {
+    fetchMovies() {
+      axios.get('https://api.themoviedb.org/3/search/movie', {
+        params: {
+          api_key: this.API_KEY,
+          query: this.query,
+        }
+      }).then(res => {
+        console.log(res.data.result);
+      })
+    }
+  },
+  created() {
+    this.fetchMovies()
+  }
+}
 </script>
 
 <template>
