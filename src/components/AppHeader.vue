@@ -1,15 +1,20 @@
 <script>
+import { store } from '../store'
 export default {
   name: "AppHeader",
+  components: {
+
+  },
+
   data() {
     return {
-
+      store: store,
+      query: '',
     }
   },
   methods: {
-    onClick() {
-      this.$emit('buttonClick')
-      console.log('buttonClickEmit');
+    searchResult() {
+      this.$emit('searchResult', this.query)
     },
   }
 }
@@ -17,13 +22,13 @@ export default {
 
 <template>
   <div>
-    <input type="search" placeholder="Search" />
-    <button @click="onClick">Search</button>
+    <input @keyup.enter="searchResult" type="text" placeholder="Search Title" v-model="store.search" />
+    <button @click="searchResult">Search</button>
   </div>
 </template>
 
 <style scoped>
 input {
-  margin: 0px 10px;
+  margin: 0px 10px 10px 0px;
 }
 </style>

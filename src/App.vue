@@ -1,15 +1,18 @@
 <script>
-import AppHeader from './components/AppHeader.vue'
-import axios from 'axios'
+import AppHeader from './components/AppHeader.vue';
+import axios from 'axios';
+import { store } from './store';
+
 export default {
+  name: 'App',
   components: {
     AppHeader
   },
-  name: 'App',
   data() {
     return {
+      store,
       API_KEY: '25e224b4d2e69b2bde88f482e9b3a205',
-      query: 'Ritorno al futuro',
+      query: '',
     }
   },
   methods: {
@@ -18,14 +21,14 @@ export default {
         params: {
           api_key: this.API_KEY,
           query: this.query,
+          query: store.search,
         }
       }).then(res => {
+
         console.log(res.data.results);
       })
     },
-    AppButtonFunction() {
-      console.log('AppClick');
-    }
+
   },
   created() {
     this.fetchMovies()
@@ -35,11 +38,7 @@ export default {
 
 <template>
   <div class="header">
-    <AppHeader @buttonClick="AppButtonFunction" />
-  </div>
-
-  <div>
-    {{ query }}
+    <AppHeader @searchResult="fetchMovies" />
   </div>
 </template>
 
