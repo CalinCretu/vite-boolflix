@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div><img :src="`https://image.tmdb.org/t/p/w342${item.poster_path}`" alt=""></div>
     <ul>
       <li>{{ item.name }}</li>
       <li>{{ item.original_name }}</li>

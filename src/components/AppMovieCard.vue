@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="card">
+    <div><img :src="`https://image.tmdb.org/t/p/w342${item.poster_path}`" alt=""></div>
     <ul>
       <li>{{ item.title }}</li>
       <li>{{ item.original_title }}</li>
@@ -35,4 +36,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.card {
+  border: 2px solid black;
+  border-radius: 10px;
+}
+</style>
