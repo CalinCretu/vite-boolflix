@@ -9,12 +9,11 @@
       </li>
       <li>{{ item.vote_average }}</li>
     </ul>
-
   </div>
 </template>
 
 <script>
-import { store } from '../store'
+import { store } from '../store';
 
 export default {
   props: {
