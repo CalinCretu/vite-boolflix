@@ -1,45 +1,50 @@
 <script>
+import AppMain from './components/AppMain.vue';
 import AppHeader from './components/AppHeader.vue';
-import axios from 'axios';
 import { store } from './store';
+import axios from 'axios';
 
 export default {
-  name: 'App',
   components: {
-    AppHeader
+    AppMain,
+    AppHeader,
   },
   data() {
     return {
-      store,
-      API_KEY: '25e224b4d2e69b2bde88f482e9b3a205',
-      query: '',
+      store: store,
     }
   },
   methods: {
-    fetchMovies() {
+    fetchData() {
+
+      if (this.store.searchText === '') {
+        store.movies = [];
+        store.series = [];
+        return
+      }
+
       axios.get('https://api.themoviedb.org/3/search/movie', {
         params: {
-          api_key: this.API_KEY,
-          query: this.query,
-          query: store.search,
+          api_key: this.store.API_KEY,
+          query: this.store.searchText,
+          language: ''
         }
-      }).then(res => {
-
-        console.log(res.data.results);
       })
-    },
+        .then(res => {
+          const movies = res.data.results
+          this.store.movies = movies
+        })
 
-  },
-  created() {
-    this.fetchMovies()
+    }
   }
 }
 </script>
 
 <template>
-  <div class="header">
-    <AppHeader @searchResult="fetchMovies" />
-  </div>
+  <AppHeader @search="fetchData" />
+  <AppMain />
 </template>
 
-<style></style>
+<style lang="scss">
+@use './style/general.scss';
+</style>

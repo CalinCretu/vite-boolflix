@@ -1,34 +1,36 @@
+<template>
+  <header>
+    <nav class="nav container">
+      <span>
+        Boolflix
+      </span>
+      <input type="text" @keyup.enter="$emit('search')" v-model.trim="store.searchText" placeholder="Cerca film">
+    </nav>
+  </header>
+</template>
+
 <script>
 import { store } from '../store'
+
 export default {
-  name: "AppHeader",
-  components: {
-
-  },
-
   data() {
     return {
-      store: store,
-      query: '',
+      store: store
     }
-  },
-  methods: {
-    searchResult() {
-      this.$emit('searchResult', this.query)
-    },
   }
 }
 </script>
 
-<template>
-  <div>
-    <input @keyup.enter="searchResult" type="text" placeholder="Search Title" v-model="store.search" />
-    <button @click="searchResult">Search</button>
-  </div>
-</template>
+<style lang="scss" scoped>
+header {
+  background-color: black;
+  color: white;
+  padding: 20px;
+}
 
-<style scoped>
-input {
-  margin: 0px 10px 10px 0px;
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>
