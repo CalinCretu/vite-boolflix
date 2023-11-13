@@ -48,6 +48,8 @@ export default {
 <style lang="scss" scoped>
 .card {
   position: relative;
+  border: 2px solid white;
+  border-radius: 10px;
 
   .bkg-img {
     border-radius: 10px;

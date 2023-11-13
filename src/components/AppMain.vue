@@ -42,6 +42,8 @@ export default {
 <style lang="scss" scoped>
 main {
   padding: 20px;
+  background-color: black;
+  border-top: 2px solid red;
 }
 
 .grid {

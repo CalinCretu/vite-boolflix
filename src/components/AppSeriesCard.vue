@@ -1,6 +1,10 @@
 <template>
   <div class="card">
-    <div><img class="bkg-img" :src="`https://image.tmdb.org/t/p/w342${item.poster_path}`" alt=""></div>
+    <div>
+      <ul>
+        <li><img class="bkg-img" :src="`https://image.tmdb.org/t/p/w342${item.poster_path}`" alt=""></li>
+      </ul>
+    </div>
     <ul class="info">
       <li>Titolo: {{ item.name }}</li>
       <li>Titolo Originale: {{ item.original_name }}</li>
@@ -48,6 +52,12 @@ export default {
 <style lang="scss" scoped>
 .card {
   position: relative;
+  border: 2px solid white;
+  border-radius: 10px;
+
+  .no-img {
+    width: 90px;
+  }
 
   .bkg-img {
     border-radius: 10px;

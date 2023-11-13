@@ -6,9 +6,9 @@ export const store = reactive({
   series: [],
   API_KEY: '25e224b4d2e69b2bde88f482e9b3a205',
   flags: {
-    it: '/it.png',
-    en: '/en.png',
-    fr: '/fr.png',
-    es: '/es.png',
+    it: 'imgs/it.png',
+    en: 'imgs/en.png',
+    fr: 'imgs/fr.png',
+    es: 'imgs/es.png',
   },
 })
