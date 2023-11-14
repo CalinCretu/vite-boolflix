@@ -10,9 +10,9 @@
       </div>
     </div>
     <div class="container">
-      <h2>Series</h2>
+      <h2>TV Series</h2>
       <div class="grid">
-        <AppSeriesCard v-for="serie in store.series" :key="serie.id" :item="serie" />
+        <AppMovieCard v-for="serie in store.series" :key="serie.id" :item="serie" />
         <div v-if="!store.series.length">
           Nessua serie da mostrare
         </div>
@@ -24,12 +24,12 @@
 <script>
 import { store } from '../store'
 import AppMovieCard from './AppMovieCard.vue';
-import AppSeriesCard from './AppSeriesCard.vue';
+// import AppSeriesCard from './AppSeriesCard.vue';
 
 export default {
   components: {
     AppMovieCard,
-    AppSeriesCard,
+    // AppSeriesCard,
   },
   data() {
     return {
@@ -42,7 +42,7 @@ export default {
 <style lang="scss" scoped>
 main {
   padding: 20px;
-  background-image: linear-gradient(to bottom, gray, black);
+  background-image: linear-gradient(to bottom, rgb(49, 49, 49), black);
 
   .container {
     border-top: 2px solid red;

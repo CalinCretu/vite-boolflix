@@ -34,7 +34,7 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  background-image: linear-gradient(to bottom, black, grey);
+  background-image: linear-gradient(to bottom, black, rgb(49, 49, 49));
   color: white;
   padding: 20px 0px;
 }

@@ -1,9 +1,13 @@
 <template>
   <div class="card">
-    <div><img class="bkg-img" :src="`https://image.tmdb.org/t/p/w342${item.poster_path}`" alt=""></div>
+    <div>
+      <img class="bkg-img" v-if="item.poster_path" :src="basePath + item.poster_path" alt="">
+      <img v-else src="https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="">
+
+    </div>
     <ul class="info">
-      <li>Titolo: {{ item.title }}</li>
-      <li>Titolo Originale: {{ item.original_title }}</li>
+      <li>Titolo: {{ item.title || item.name }}</li>
+      <li>Titolo Originale: {{ item.original_title || item.original_name }}</li>
       <li>
         <span>Lingua: </span>
         <img height="10" v-if="srcFlag" :src="srcFlag" alt="">
@@ -35,6 +39,7 @@ export default {
   data() {
     return {
       store,
+      basePath: 'https://image.tmdb.org/t/p/w342',
     }
   },
   computed: {

@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="card">
     <div>
       <ul>
@@ -95,4 +95,4 @@ export default {
     display: block;
   }
 }
-</style>
+</style> -->
