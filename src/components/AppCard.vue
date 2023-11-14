@@ -52,17 +52,17 @@ export default {
 .card {
   box-shadow: 0px 0px 15px rgba(255, 0, 0);
   transition: 0.6s;
-  border-radius: 20px;
+  border-radius: 10px;
   position: relative;
   display: flex;
 
   .img {
-    border-radius: 20px;
+    border-radius: 10px;
     object-fit: fill;
   }
 
   .img-netflix {
-    border-radius: 20px;
+    border-radius: 10px;
     object-fit: scale-down;
     transform: rotate(-45deg);
   }
