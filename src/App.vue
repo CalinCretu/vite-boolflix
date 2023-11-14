@@ -41,6 +41,9 @@ export default {
           this.store.series = series.data.results;
           this.store.movies = movies.data.results;
         })
+        .catch(err => {
+          console.log(err, err.response)
+        })
     }
   }
 }

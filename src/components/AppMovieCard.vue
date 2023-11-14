@@ -57,7 +57,7 @@ export default {
   }
 
   .info {
-    width: 100%;
+    width: 150px;
     display: none;
     position: absolute;
     padding: 8px;

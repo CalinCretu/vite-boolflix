@@ -42,8 +42,17 @@ export default {
 <style lang="scss" scoped>
 main {
   padding: 20px;
-  background-color: black;
-  border-top: 2px solid red;
+  background-image: linear-gradient(to bottom, gray, black);
+
+  .container {
+    border-top: 2px solid red;
+    padding-top: 20px;
+  }
+
+}
+
+h2 {
+  color: white;
 }
 
 .grid {
