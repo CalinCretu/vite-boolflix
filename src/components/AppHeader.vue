@@ -3,7 +3,7 @@
     <nav class="nav container">
       <span class="links">
         <span class="title">
-          Boolflix
+          <a href="#">Boolflix</a>
         </span>
         <ul class="pages-links">
           <li><a href="#">Home</a> </li>
@@ -12,10 +12,9 @@
         </ul>
       </span>
       <span>
-        <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
+        <a class="icon" @click="$emit('search')" href="#"><font-awesome-icon icon="fa-solid fa-magnifying-glass" /></a>
         <input type="text" @keyup.enter="$emit('search')" v-model.trim="store.searchText" placeholder="Search">
       </span>
-
     </nav>
   </header>
 </template>
@@ -44,6 +43,14 @@ header {
   justify-content: space-between;
   align-items: center;
 
+  .icon {
+    font-size: 22px;
+  }
+
+  .icon:hover {
+    color: red;
+    text-shadow: 1px 1px 10px white;
+  }
 
   .links {
     display: flex;
@@ -52,6 +59,10 @@ header {
     .pages-links {
       display: flex;
       margin: 0 10px;
+    }
+
+    .pages-links>*:hover {
+      border-bottom: 1px solid red;
     }
 
     .pages-links>* {
@@ -65,6 +76,7 @@ header {
     color: red;
     font-size: 60px;
     font-weight: 700;
+    transition: 0.8s;
   }
 
   input {
