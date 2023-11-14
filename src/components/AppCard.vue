@@ -51,7 +51,7 @@ export default {
 <style lang="scss" scoped>
 .card {
   box-shadow: 0px 0px 15px rgba(255, 0, 0);
-  transition: 0.5s;
+  transition: 0.6s;
   border-radius: 20px;
   position: relative;
   display: flex;
@@ -71,10 +71,12 @@ export default {
     position: absolute;
     width: 100%;
     height: 100%;
-    padding: 8px;
+    font-size: 22px;
+    padding: 20px;
     color: white;
     background-color: transparent;
     opacity: 0;
+    transition: opacity 0.8s;
   }
 
   .voto {
@@ -88,11 +90,11 @@ export default {
 }
 
 .card:hover {
-  box-shadow: 0px 0px 25px rgba(255, 0, 0);
+  box-shadow: 0px 0px 25px rgb(255, 255, 255);
 
   .img,
   .img-netflix {
-    opacity: 0.3;
+    opacity: 0.1;
   }
 
   .info {
