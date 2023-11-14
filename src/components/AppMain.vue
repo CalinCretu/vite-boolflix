@@ -3,7 +3,7 @@
     <div class="container">
       <h2>Movies</h2>
       <div class="grid">
-        <AppMovieCard v-for="movie in store.movies" :key="movie.id" :item="movie" />
+        <AppCard v-for="movie in store.movies" :key="movie.id" :item="movie" />
         <div v-if="!store.movies.length">
           Nessun film da mostrare
         </div>
@@ -12,7 +12,7 @@
     <div class="container">
       <h2>TV Series</h2>
       <div class="grid">
-        <AppMovieCard v-for="serie in store.series" :key="serie.id" :item="serie" />
+        <AppCard v-for="serie in store.series" :key="serie.id" :item="serie" />
         <div v-if="!store.series.length">
           Nessua serie da mostrare
         </div>
@@ -23,12 +23,12 @@
 
 <script>
 import { store } from '../store'
-import AppMovieCard from './AppMovieCard.vue';
+import AppCard from './AppCard.vue';
 // import AppSeriesCard from './AppSeriesCard.vue';
 
 export default {
   components: {
-    AppMovieCard,
+    AppCard,
     // AppSeriesCard,
   },
   data() {
