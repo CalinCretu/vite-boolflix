@@ -57,6 +57,7 @@ header {
     .pages-links>* {
       margin: 0 10px;
       font-size: 22px;
+      text-shadow: 1px 1px 10px red;
     }
   }
 

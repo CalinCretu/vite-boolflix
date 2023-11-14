@@ -1,10 +1,8 @@
 <template>
   <div class="card">
-    <div>
-      <img class="bkg-img" v-if="item.poster_path" :src="basePath + item.poster_path" alt="">
-      <img v-else src="https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="">
+    <img class="img" v-if="item.poster_path" :src="basePath + item.poster_path" alt="">
+    <img class="img-netflix" v-else src="https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="">
 
-    </div>
     <ul class="info">
       <li>Titolo: {{ item.title || item.name }}</li>
       <li>Titolo Originale: {{ item.original_title || item.original_name }}</li>
@@ -52,25 +50,31 @@ export default {
 
 <style lang="scss" scoped>
 .card {
+  box-shadow: 0px 0px 15px rgba(255, 0, 0);
+  transition: 0.5s;
+  border-radius: 20px;
   position: relative;
-  border: 2px solid white;
-  border-radius: 10px;
+  display: flex;
 
-  .bkg-img {
-    border-radius: 10px;
-    display: block;
+  .img {
+    border-radius: 20px;
+    object-fit: fill;
+  }
+
+  .img-netflix {
+    border-radius: 20px;
+    object-fit: scale-down;
+    transform: rotate(-45deg);
   }
 
   .info {
-    width: 150px;
-    display: none;
     position: absolute;
+    width: 100%;
+    height: 100%;
     padding: 8px;
     color: white;
-    background-color: black;
-    border-radius: 10px;
-    top: 0;
-    height: 100%;
+    background-color: transparent;
+    opacity: 0;
   }
 
   .voto {
@@ -84,12 +88,15 @@ export default {
 }
 
 .card:hover {
-  .bkg-img {
-    display: none;
+  box-shadow: 0px 0px 25px rgba(255, 0, 0);
+
+  .img,
+  .img-netflix {
+    opacity: 0.3;
   }
 
   .info {
-    display: block;
+    opacity: 1;
   }
 }
 </style>
